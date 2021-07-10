@@ -7,3 +7,7 @@ The following people are in the Fair Air Project Team:
 * May Deng - https://github.com/mdeng1110
 * Mengyuan Chen - https://github.com/mychen163
 * Ruben Esqueda - https://github.com/ruben174
+
+The following is the tech stack for this project:
+* Amazon Web Services
+* Django
