@@ -1,11 +1,15 @@
 import Header from './components/Header'
-
-function App() {
+import Tasks from './components/Tasks'
+const App = () => {
   return (
     <div className="container">
       <Header />
+      <Tasks />
     </div>
   );
 }
 
-export default App;
+Header.defaultProps = {
+  title: 'Task Tracker',
+}
+export default App
