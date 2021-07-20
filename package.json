@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
@@ -15,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "react-scripts build && aws s3 rm s3://fairair.com/ --recursive && aws s3 cp ./build s3://fairair.com/ --recursive --acl public-read"
   },
   "eslintConfig": {
     "extends": [

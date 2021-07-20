@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { refreshTokenSetup } from './utils/refreshToken';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const {CLIENT_ID} = process.env;
+
+function Login() {
+
+    const [showloginButton, setShowloginButton] = useState(true);
+    const [showlogoutButton, setShowlogoutButton] = useState(false);
+    const onLoginSuccess = (res) => {
+        console.log('Login Success:', res.profileObj);
+        setShowloginButton(false);
+        setShowlogoutButton(true);
+        refreshTokenSetup(res);
+    };
+
+    const onLoginFailure = (res) => {
+        console.log('Login Failed:', res);
+    };
+
+    const onSignoutSuccess = () => {
+        alert("You have been logged out successfully");
+        console.clear();
+        setShowloginButton(true);
+        setShowlogoutButton(false);
+    };
+
+    return (
+        <div>
+            { showloginButton ?
+                <GoogleLogin
+                    clientId={CLIENT_ID}
+                    buttonText="Sign In"
+                    onSuccess={onLoginSuccess}
+                    onFailure={onLoginFailure}
+                    cookiePolicy={'single_host_origin'}
+                    isSignedIn={true}
+                /> : null}
+
+            { showlogoutButton ?
+                <GoogleLogout
+                    clientId={CLIENT_ID}
+                    buttonText="Sign Out"
+                    onLogoutSuccess={onSignoutSuccess}
+                >
+                </GoogleLogout> : null
+            }
+        </div>
+    );
 }
-
-export default App;
+export default Login;
