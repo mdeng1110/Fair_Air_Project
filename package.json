@@ -1,5 +1,5 @@
 {
-  "name": "fair_air_project",
+  "name": "fair_air",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,14 +8,19 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "env-cmd mocha -R spec",
+    "eject": "react-scripts eject",
+    "deploy": "react-scripts build && aws s3 rm s3://fairair.com/ --recursive && aws s3 cp ./build s3://fairair.com/ --recursive --acl public-read"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
