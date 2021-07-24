@@ -1,51 +1,26 @@
-import React, { useState } from 'react';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import { refreshTokenSetup } from './utils/refreshToken';
+import React from 'react';
+import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/home';
+import About from './pages/about';
+import AQI from './pages/aqi';
+import Contact from './pages/contact';
+import Login from './pages/login';
 
-function Login() {
-
-    const [showloginButton, setShowloginButton] = useState(true);
-    const [showlogoutButton, setShowlogoutButton] = useState(false);
-    const onLoginSuccess = (res) => {
-        console.log('Login Success:', res.profileObj);
-        setShowloginButton(false);
-        setShowlogoutButton(true);
-        refreshTokenSetup(res);
-    };
-
-    const onLoginFailure = (res) => {
-        console.log('Login Failed:', res);
-    };
-
-    const onSignoutSuccess = () => {
-        alert("You have been logged out successfully");
-        console.clear();
-        setShowloginButton(true);
-        setShowlogoutButton(false);
-    };
-
-    return (
-        <div>
-            { showloginButton ?
-                <GoogleLogin
-                    clientId={process.env.REACT_APP_CLIENT_ID}
-                    buttonText="Sign In"
-                    onSuccess={onLoginSuccess}
-                    onFailure={onLoginFailure}
-                    cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
-                /> : null}
-
-            { showlogoutButton ?
-                <GoogleLogout
-                    clientId={process.env.REACT_APP_CLIENT_ID}
-                    buttonText="Sign Out"
-                    onLogoutSuccess={onSignoutSuccess}
-                >
-                </GoogleLogout> : null
-            }
-        </div>
-        
-    );
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/about' component={About} />
+        <Route path='/aqi' component={AQI} />
+        <Route path='/contact-us' component={Contact} />
+        <Route path='/login' component={Login} />
+      </Switch>
+    </Router>
+  );
 }
-export default Login;
+
+export default App;
