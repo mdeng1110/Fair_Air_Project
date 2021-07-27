@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { refreshTokenSetup } from '../utils/refreshToken';
 
+
 function Login() {
 
     const [showloginButton, setShowloginButton] = useState(true);
     const [showlogoutButton, setShowlogoutButton] = useState(false);
+    /*
+    const [name,setName] = useState("");
+    const[email,setEmail] = useState("");*/
     const onLoginSuccess = (res) => {
+       /*
+        setName(res.profileObj.name);
+        setEmail(res.profileObj.email); */
+
         console.log('Login Success:', res.profileObj);
         setShowloginButton(false);
         setShowlogoutButton(true);
@@ -25,7 +33,11 @@ function Login() {
     };
 
     return (
-        <div>
+        <div className = "App"> 
+        
+           {/* <h1> Login with Google</h1>
+            <h2> Welcome: {name} </h2>
+           <h2> Email: {email} </h2> */}
             { showloginButton ?
                 <GoogleLogin
                     clientId={process.env.REACT_APP_CLIENT_ID}

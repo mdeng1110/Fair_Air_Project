@@ -9,8 +9,6 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc((50vw - 1000px) / 2);
   z-index: 10;
-  /* Third Nav */
-  /* justify-content: flex-start; */
 `;
 
 export const NavLink = styled(Link)`
@@ -18,11 +16,11 @@ export const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0 1rem;
+  padding: 0 3rem;
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #15cdfc;
+    color: rgb(241,196,15);
   }
 `;
 
@@ -62,7 +60,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #256ce1;
+  background: $white;
   padding: 10px 22px;
   color: #fff;
   outline: none;
