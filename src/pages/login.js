@@ -7,18 +7,19 @@ function Login() {
 
     const [showloginButton, setShowloginButton] = useState(true);
     const [showlogoutButton, setShowlogoutButton] = useState(false);
-    /*
-    const [name,setName] = useState("");
-    const[email,setEmail] = useState("");*/
-    const onLoginSuccess = (res) => {
-       /*
-        setName(res.profileObj.name);
-        setEmail(res.profileObj.email); */
+    
 
+    
+    const [name,setName] = useState("");
+    
+    const onLoginSuccess = (res) => { 
         console.log('Login Success:', res.profileObj);
+        setName("Welcome, "+res.profileObj.givenName);
+       
         setShowloginButton(false);
         setShowlogoutButton(true);
-        refreshTokenSetup(res);
+        
+        refreshTokenSetup(res);     
     };
 
     const onLoginFailure = (res) => {
@@ -28,20 +29,18 @@ function Login() {
     const onSignoutSuccess = () => {
         alert("You have been logged out successfully");
         console.clear();
+        setName("")
         setShowloginButton(true);
         setShowlogoutButton(false);
     };
 
     return (
         <div className = "App"> 
-        
-           {/* <h1> Login with Google</h1>
-            <h2> Welcome: {name} </h2>
-           <h2> Email: {email} </h2> */}
+            <p>{name}</p>
             { showloginButton ?
                 <GoogleLogin
                     clientId={process.env.REACT_APP_CLIENT_ID}
-                    buttonText="Sign In"
+                    buttonText="Sign In with Google"
                     onSuccess={onLoginSuccess}
                     onFailure={onLoginFailure}
                     cookiePolicy={'single_host_origin'}

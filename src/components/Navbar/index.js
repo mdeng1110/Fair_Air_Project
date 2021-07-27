@@ -14,8 +14,9 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <img src= {logo} width = "300" alt = "fair air"/>    
+          
         <Bars />
+        <img src= {logo} width = "300" alt = "fair air"/>  
         <NavMenu>
           <NavLink to='/' activeStyle>
             Home

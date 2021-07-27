@@ -6,7 +6,7 @@ import Home from './pages/home';
 import About from './pages/about';
 import AQI from './pages/aqi';
 import Contact from './pages/contact';
-import Login from './pages/login';
+
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path='/about' component={About} />
         <Route path='/aqi' component={AQI} />
         <Route path='/contact-us' component={Contact} />
-        <Route path='/login' component={Login} />
+        <Route path='/login' exact component={Home} />
       </Switch>
     </Router>
   );
