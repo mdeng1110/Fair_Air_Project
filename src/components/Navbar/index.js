@@ -7,19 +7,20 @@ import {
   NavBtn,
   NavBtnLink
 } from './NavbarElements';
-import logo from './fairairlogo.svg';
+import logo from './fairairlogo.svg'
 import Login from '../../pages/login';
+
+
 
 const Navbar = () => {
   return (
     <>
       <Nav>
-          
+         
         <Bars />
-        <img src= {logo} width = "300" alt = "fair air"/>  
         <NavMenu>
-          <NavLink to='/' activeStyle>
-            Home
+          <NavLink to='/'>
+            <img src= {logo} width = '300' height = '80' alt='' />
           </NavLink>
           <NavLink to='/about' activeStyle>
             About Us
@@ -31,6 +32,7 @@ const Navbar = () => {
             Contact Us
           </NavLink>
         </NavMenu>
+
         <NavBtn>
           <NavBtnLink to='/login'>
             <Login></Login>

@@ -41,10 +41,12 @@ export const Bars = styled(FaBars)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 24px;
+  margin-left: -24px;
+  margin-right: 0px;
   white-space: nowrap; 
   @media screen and (max-width: 768px) {
     display: none;
+
   }
 `;
 
@@ -52,7 +54,9 @@ export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
   margin-right: 24px;
- 
+  justify-contend: flex-end;
+  width: 100 vw;
+  white-space: nowrap;
   @media screen and (max-width: 768px) {
     display: none;
   }
