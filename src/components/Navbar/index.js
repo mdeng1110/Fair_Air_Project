@@ -16,12 +16,11 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-         
         <Bars />
-        <NavMenu>
-          <NavLink to='/'>
-            <img src= {logo} width = '300' height = '80' alt='' />
+        <NavLink to='/'>
+            <img src= {logo} width = "160" alt = "logo" />
           </NavLink>
+        <NavMenu>
           <NavLink to='/about' activeStyle>
             About Us
           </NavLink>
@@ -31,8 +30,9 @@ const Navbar = () => {
           <NavLink to='/contact-us' activeStyle>
             Contact Us
           </NavLink>
+          
         </NavMenu>
-
+       
         <NavBtn>
           <NavBtnLink to='/login'>
             <Login></Login>
