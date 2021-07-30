@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "project_bucket" {
 }
 */
 
-resource "aws_s3_bucket" "create_bucket" {
+resource "aws_s3_bucket" "host_bucket" {
   bucket        = "fairair-project.com"
   acl           = "public-read"
   force_destroy = true
@@ -59,5 +59,6 @@ resource "aws_s3_bucket_policy" "policy" {
       }
     ]
   })
+  depends_on = [aws_s3_bucket.host_bucket]
 }
 
