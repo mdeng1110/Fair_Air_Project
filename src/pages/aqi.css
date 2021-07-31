@@ -1,5 +1,5 @@
 
-.contact-section{
+.aqi-section{
     background: url(about.jpg) no-repeat right;
     background-size: 60%;
     background-color: #fdfdfd;
@@ -7,16 +7,24 @@
     padding: 80px 0;
 }
 
-.contact-inner-container{
+.aqi-inner-container{
     width: 55%;
     float: left;
     background-color: #fdfdfd;
     padding: 150px;
 }
 
-.contact-inner-container h1{
+.aqi-inner-container h1{
+    color:#02A899;
     margin-bottom: 30px;
     font-size: 30px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+.aqi-inner-container h2{
+    color: #363434;
+    margin-bottom: 20px;
+    font-size: 20px;
     font-weight: 900;
     white-space: nowrap;
 }
@@ -27,31 +35,31 @@
     line-height: 30px;
     text-align: justify;
     margin-bottom: 40px;
-    white-space: nowrap;
+    
 }
 
 
 @media screen and (max-width:1200px){
-    .contact-inner-container{
+    .aqi-inner-container{
         padding: 80px;
     }
 }
 
 @media screen and (max-width:1000px){
-    .contact-section{
+    .aqi-section{
         background-size: 100%;
         padding: 100px 40px;
     }
-    .contact-inner-container{
+    .aqi-inner-container{
         width: 100%;
     }
 }
 
 @media screen and (max-width:600px){
-    .contact-section{
+    .aqi-section{
         padding: 0;
     }
-    .contact-inner-container{
+    .aqi-inner-container{
         padding: 60px;
     }
 }

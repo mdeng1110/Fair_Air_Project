@@ -1,5 +1,7 @@
 import React from 'react';
 import './about.css'
+import {FaGithub} from 'react-icons/fa';
+
 
 const About = () => {
   return (
@@ -58,9 +60,16 @@ const About = () => {
             -REST APIs  
             </p>        
             </p>
+            <br></br>
+            <h1>Contact Us</h1>
+            <p class="text">
+            <p>💌 Email: fairairproject@gmail.com</p>
+            <p><FaGithub />  Github: https://github.com/mdeng1110/Fair_Air_Project</p>
+        </p>
         </div>
     </div>
     </div>
+    
   );
 };
 
