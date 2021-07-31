@@ -1,79 +1,57 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-
-body {
-  background-color: rgb(248, 246, 253);
+.contact-section{
+    background: url(about.jpg) no-repeat right;
+    background-size: 60%;
+    background-color: #fdfdfd;
+    overflow: hidden;
+    padding: 80px 0;
 }
 
-body,
-input,
-textarea,
-button {
-  font-family: "Inter", sans-serif;
+.contact-inner-container{
+    width: 55%;
+    float: left;
+    background-color: #fdfdfd;
+    padding: 150px;
 }
 
-.app {
-  width: 400px;
-  margin: 0 auto;
-  height: 100vh;
+.contact-inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+    white-space: nowrap;
 }
 
-/* Contact.js */
-.form {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+    white-space: nowrap;
 }
 
-.form > h1 {
-  margin-bottom: 30px;
+
+@media screen and (max-width:1200px){
+    .contact-inner-container{
+        padding: 80px;
+    }
 }
 
-.form > input,
-textarea {
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.137);
-  margin-bottom: 20px;
-  border: 1px solid lightgray;
-  background: #fff;
-  font-size: 16px;
-  color: rgb(0, 0, 32);
-  outline: none;
-  max-width: 400px;
+@media screen and (max-width:1000px){
+    .contact-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .contact-inner-container{
+        width: 100%;
+    }
 }
 
-.form > input:focus,
-textarea:focus {
-  border: 1px solid #02A899;
-}
-
-.form > textarea {
-  height: 150px;
-  max-width: 800px;
-  min-height: 100px;
-}
-
-.form > label {
-  padding-bottom: 10px;
-  color: rgb(0, 0, 32);
-  font-weight: bold;
-}
-
-.form > button {
-  padding: 20px;
-  border: none;
-  background-color:#02A899;
-  font-weight: 500;
-  font-size: 20px;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  margin-top: 10px;
-}
-
-.form > button:hover {
-  background-color:#08746b;
+@media screen and (max-width:600px){
+    .contact-section{
+        padding: 0;
+    }
+    .contact-inner-container{
+        padding: 60px;
+    }
 }
