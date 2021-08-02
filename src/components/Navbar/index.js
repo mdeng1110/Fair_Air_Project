@@ -19,7 +19,7 @@ const Navbar = () => {
           <img src={logo} width="160" alt="logo" />
         </NavLink>
         <NavMenu>
-        <NavLink to="/home" activeStyle>
+          <NavLink to="/home" activeStyle>
             Home
           </NavLink>
           <NavLink to="/about" activeStyle>

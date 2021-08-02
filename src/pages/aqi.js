@@ -1,6 +1,7 @@
 import React from "react";
 import "./aqi.css";
 import aqitable from "./table.png";
+import table from './table.png';
 
 const AQI = () => {
   return (
@@ -8,6 +9,10 @@ const AQI = () => {
       <div class="aqi-section">
         <div class="aqi-inner-container">
           <h1>Air Quality Index (AQI)</h1>
+          <div>
+          <img src={table} alt="aqi"/>
+          </div>
+          <br />
           <h2>How does the AQI work?</h2>
           <p class="text">
             Think of the AQI as a yardstick that runs from 0 to 500. The higher
@@ -27,7 +32,7 @@ const AQI = () => {
             whether air quality is reaching unhealthy levels in their
             communities.
           </p>
-          <image src ={aqitable} width="160" alt="aqi"/>
+          <image src={aqitable} width="160" alt="aqi" />
           <br />
 
           <h2>Five major pollutants</h2>
@@ -35,7 +40,7 @@ const AQI = () => {
             EPA establishes an AQI for five major air pollutants regulated by
             the Clean Air Act. Each of these pollutants has a national air
             quality standard set by EPA to protect public health:
-            <p>     -ground-level ozone</p>
+            <p> -ground-level ozone</p>
             <p>
               -particle pollution (also known as particulate matter, including
               PM2.5 and PM10)
