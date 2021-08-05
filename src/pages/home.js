@@ -9,33 +9,81 @@ class Home extends Component{
       zipcode: ''
     }
   }
-  getZipData(url){
+  
+  getCurrentZipData(url, date, zipcode){
     axios.get(url, {}).then(res => {
       const data = res.data
       console.log(data)
-      const zipInformation = data.map(zc =>
-        <div>
-          <p>AQI: {zc.AQI}</p>
-          <p>Date: {zc.DateForecast}</p>
-          <p>State: {zc.StateCode}</p>
-        </div>
+  
+      const currentZipInformation = data.map(zc =>
+        <table className = "table" > 
+          <div className = "tr" >
+            <td className = "td">{zc.ReportingArea},{zc.StateCode}</td>
+            <td className = "td"> {zipcode}</td>
+            <td className = "td"> {zc.Date}</td>
+            <td className = "td"> {zc.ParameterName} Index: {this.checkAQI(zc.AQI)} </td>
+           
+          </div>
+        </table>
+
         )
       this.setState({
-        zipInformation
+        currentZipInformation
       })
-      console.log(this.state.zipInformation);
+
+      //console.log(this.state.currentZipInformation);
     })
     .catch((error) => {
       console.log(error)
     })
   }
+  getForeCastZipData(url, date, zipcode){
+
+    axios.get(url, {}).then(res => {
+      const data = res.data
+      console.log("Data", data)
+      const zipInformation = data.map(zc =>
+        <table className = "table" >
+          <div className = "tr" >
+            <td className = "td"> {zc.ReportingArea}, {zc.StateCode}</td>
+            <td className = "td"> {zipcode}</td>
+            <td className = "td"> {zc.DateForecast}</td>
+            <td className = "td"> {zc.ParameterName} : {this.checkAQI(zc.AQI)} </td>
+          </div>
+        </table>
+  
+      )
+
+      this.setState({
+        zipInformation
+      })
+
+      //console.log(this.state.zipInformation);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+  checkAQI(aqi){
+    if(aqi === "-1"){
+      return "Currently Not Avaliable";
+    }
+    else{
+      return aqi
+    }
+  }
+
   handleSubmit = (event) =>{
     event.preventDefault()
     const data = this.state
     var date = moment().format("YYYY-MM-DD")
     //console.log(date)
-    var url = `https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode=${data.zipcode}&date=${date}&distance=25&API_KEY=90ADDB53-5F80-485E-8627-6A77A1F86C58`
-    this.getZipData(url)
+    var ForecastUrl = `https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode=${data.zipcode}&date=${date}&distance=25&API_KEY=90ADDB53-5F80-485E-8627-6A77A1F86C58`
+    var currentUrl = `https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=${data.zipcode}&distance=25&API_KEY=90ADDB53-5F80-485E-8627-6A77A1F86C58`
+    //this.getZipData(url)
+
+    this.getForeCastZipData(ForecastUrl, date, data.zipcode)
+    this.getCurrentZipData(currentUrl, date, data.zipcode)
   }
   handleInputChange = (event) =>{
     event.preventDefault()
@@ -63,7 +111,7 @@ class Home extends Component{
                     placeholder="zipcode"
                     value={zipcode}
                     name="zipcode"
-                    required="true"
+                    required={true}
                     onChange={this.handleInputChange}
                   />
                 </p>
@@ -72,52 +120,31 @@ class Home extends Component{
             </div>
           </div>
           <div></div>
+          {/* <br></br> */}
+          
           <div className="rightcontainer">
             <div className="topcontainer">
-              <h2 text-align = "center">Current Air Quality</h2>
-              
-              <table className = 'table'>
-                <tr className ='tr'>
-                  <th className = 'th'>State</th>
-                  <th className = 'th'>ZipCode</th>
-                  <th className = 'th'>AQI</th>
-                  <th className = 'th'>pm2.5</th>
-                </tr>
-                <tr>
-                  <td className = 'td'>CA</td>
-                  <td className = 'td'>{zipcode}</td>
-                  <td className = 'td'>100</td>
-                  <td className = 'td'>20</td>
-                </tr>
-              </table>
-             {/* <p> {this.state.zipInformation} </p> */}
+                <table className = 'table'>
+                  <tr className = "tr">
+                    <th className = 'th'>Current Air Quality</th>
+                  </tr>
+      
+                  <p> {this.state.currentZipInformation} </p>
+                </table>
             </div>
             <div className="topcontainer">
-              <h2>Air Quality Forecast</h2>
-              <table className = 'table'>
-                <tr className ='tr'>
-                  <th className = 'th'>State</th>
-                  <th className = 'th'>ZipCode</th>
-                  <th className = 'th'>AQI</th>
-                  <th className = 'th'>pm2.5</th>
-                </tr>
-                <tr>
-                  {/*<td className = 'td'>{this.state.zipInformation.get('State')}</td>*/}
-                  <td className = 'td'>CA</td>
-                  <td className = 'td'>{zipcode}</td>
-                  <td className = 'td'>100</td>
-                  <td className = 'td'>20</td> 
-                </tr>
-                <tr>
-                  <td className = 'td'>CA</td>
-                  <td className = 'td'>{zipcode}</td>
-                  <td className = 'td'>100</td>
-                  <td className = 'td'>20</td> 
-                </tr>
-              </table>
-            </div>
+              <div className="forecastAirQuality">
+               
+                <table className = 'table'>
+                  <tr className = "tr">
+                    <th className = 'th'>Air Quality Forecast</th>
+                  </tr>
+                  {this.state.zipInformation}
+                </table>
+              </div>
           </div>
         </div>
+      </div>
       );
 }
 };
