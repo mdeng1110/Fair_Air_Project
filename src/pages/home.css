@@ -1,0 +1,104 @@
+.left {
+    float: left;
+    width: 20%;
+    /* background: url(about.jpg) no-repeat left; */
+    background: rgb(248, 246, 246);
+    overflow: hidden; 
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  
+  .form {
+    box-sizing: border-box;
+    width: 260px;
+    margin: 100px auto 0;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    padding-bottom: 40px;
+    border-radius: 3px;
+    float:center;
+   
+  }
+  .h1 {
+    height: 100px;
+    width: 100%;
+    background: #06b4a6;
+    font-size: 15px;
+    color: white;
+    line-height: 150%;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 5px 1px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  .input {
+    margin: 40px 25px;
+    width: 200px;
+    display: block;
+    border: none;
+    padding: 10px 0;
+    transition: all 0.3s cubic-bezier(.64,.09,.08,1);
+    background: white;
+    background-position: -200px 0;
+    background-size: 200px 100%;
+    background-repeat: no-repeat;
+    color: #545454;
+  }
+  
+  .button {
+    border: none;
+    background:#06b4a6;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 6px;
+    width: 200px;
+    color: white;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+    }
+    
+  .button:hover {transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);}
+  
+  .rightcontainer{
+    position: relative;
+    float: right;
+    width: 80%;
+    align-items: center;
+  }  
+  
+  .topcontainer{
+    box-sizing: border-box;
+    width: 98%;
+    height: 50%;
+    margin: 100px auto 0;
+    align-items: center;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+    padding-bottom: 40px;
+    border-radius: 3px;
+    float:center;
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .th, .td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .tr:nth-child(even){background-color: #f2f2f2}
+  
+  .th {
+    background-color: #06b4a6;
+    color: white;
+  }
+  @media screen and (max-width:600px){
+    .left{
+        width: 0%;
+    }
+    
+}

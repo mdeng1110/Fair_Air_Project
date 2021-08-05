@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import "./home.css";
 class Home extends Component{
   constructor(props){
     super(props)
@@ -45,22 +46,79 @@ class Home extends Component{
   render (){
     const {zipcode} = this.state
     return (
-      <div>
-         <div> 
-          <h3>Enter ZipCode to Check AirQuality</h3>
-          <br></br>
-          <form onSubmit = {this.handleSubmit}>
-            <p><input type = 'text'  value = {zipcode} name = 'zipcode'  onChange={this.handleInputChange}/></p>
-            <p><button> Submit ZipCode </button></p>
-          </form>
-          <br></br>
-         </div>
-         <div>
-          <h3> Information from API</h3>
-          <p> {this.state.zipInformation} </p>
+        <div className="home">
+          <div className="left">
+            <div>
+              <form className="form" onSubmit={this.handleSubmit}>
+                <h1 className="h1">Enter ZipCode to Check Air Quality </h1>
+                <p>
+                  <input
+                    className="input"
+                    type="text"
+                    width="200px"
+                    padding="10px"
+                    boarder="0"
+                    box-shadow=" 0 0 15px 4px rgba (0,0,0,0.06)"
+                    boarder-radius="10px"
+                    placeholder="zipcode"
+                    value={zipcode}
+                    name="zipcode"
+                    required="true"
+                    onChange={this.handleInputChange}
+                  />
+                </p>
+                <button className="button">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div></div>
+          <div className="rightcontainer">
+            <div className="topcontainer">
+              <h2 text-align = "center">Current Air Quality</h2>
+              
+              <table className = 'table'>
+                <tr className ='tr'>
+                  <th className = 'th'>State</th>
+                  <th className = 'th'>ZipCode</th>
+                  <th className = 'th'>AQI</th>
+                  <th className = 'th'>pm2.5</th>
+                </tr>
+                <tr>
+                  <td className = 'td'>CA</td>
+                  <td className = 'td'>{zipcode}</td>
+                  <td className = 'td'>100</td>
+                  <td className = 'td'>20</td>
+                </tr>
+              </table>
+             {/* <p> {this.state.zipInformation} </p> */}
+            </div>
+            <div className="topcontainer">
+              <h2>Air Quality Forecast</h2>
+              <table className = 'table'>
+                <tr className ='tr'>
+                  <th className = 'th'>State</th>
+                  <th className = 'th'>ZipCode</th>
+                  <th className = 'th'>AQI</th>
+                  <th className = 'th'>pm2.5</th>
+                </tr>
+                <tr>
+                  {/*<td className = 'td'>{this.state.zipInformation.get('State')}</td>*/}
+                  <td className = 'td'>CA</td>
+                  <td className = 'td'>{zipcode}</td>
+                  <td className = 'td'>100</td>
+                  <td className = 'td'>20</td> 
+                </tr>
+                <tr>
+                  <td className = 'td'>CA</td>
+                  <td className = 'td'>{zipcode}</td>
+                  <td className = 'td'>100</td>
+                  <td className = 'td'>20</td> 
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-    )
+      );
 }
 };
 export default Home;
