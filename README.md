@@ -27,4 +27,4 @@ The following is the tech stack for this project:
 * Terraform
 
 ## Architectural Diagram
-![alt tag](https://imgur.com/a/e4gjWqx)
+<img src="https://imgur.com/a/e4gjWqx" width="100%">
