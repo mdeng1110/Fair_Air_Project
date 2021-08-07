@@ -5,7 +5,9 @@ The following people are in the Fair Air Project Team:
 * May Deng - https://github.com/mdeng1110
 * Mengyuan Chen - https://github.com/mychen163
 * Ruben Esqueda - https://github.com/ruben174
- We worked on this project as CodeDay Labs interns.  Our mentor was Eric Hui, who is an Engineer at Facebook.  He mentored and supervised us for this project. 
+
+We worked on this project as CodeDay Labs interns.  Our mentor was Eric Hui, who is an Engineer at Facebook.  He mentored and supervised us for this project. 
+
  ## Table of Contents
 1. [Problem and Solution](#Problem and Solution)
 2. [Technological Tools](#Technological Tools)
